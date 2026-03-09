@@ -1,0 +1,85 @@
+---
+const testimonials = [
+  {
+    project: "Seeking iOS Engineer for Long Term Project",
+    rating: 5.0,
+    date: "Dec 11, 2020 - Apr 3, 2022",
+    name: "Sasha Shtern",
+    quote: "We love working with Rajat and can't wait to do another project with him!"
+  },
+  {
+    project: "iOS Engineer with a passion for building great Swift code",
+    rating: 5.0,
+    date: "Jan 4, 2022 - Jan 19, 2022",
+    name: "Neil Wainwright",
+    quote: "Rajat is an awesome iOS developer."
+  },
+  {
+    project: "Experienced iOS/Swift Developer Needed",
+    rating: 5.0,
+    date: "Sep 2, 2020 - Jan 24, 2022",
+    name: "Sisi Liu",
+    quote: "Rajat is great iOS engineer. He is intelligent, thoughtful and delivers quality work. He is also a quick learner and I have seen him grow tremendously during the months I worked with him. I would love to work with him again in any future project!"
+  },
+  {
+    project: "iOS developer needed for CoreML proof of concept",
+    rating: 5.0,
+    date: "May 2020 - Jun 2020",
+    name: "Sean Jackson",
+    quote: "Rajat communicates very well on email and the phone. He is pleasant to work with and delivers on his promises."
+  },
+  {
+    project: "(~1 hour) Solve a Swift 5 recruitment task and give us feedback!",
+    rating: 5.0,
+    date: "Jun 2020",
+    name: "Lukasz Krogulec",
+    quote: "Quick and high-quality delivery, good communication skills - I recommend working with Rajat!"
+  },
+  {
+    project: "iOS App - Save to CoreData",
+    rating: 5.0,
+    date: "May 2020",
+    name: "Ronak Mundra",
+    quote: "Great Work and resolved a tricky bug on time. Thanks"
+  },
+  {
+    project: "PRV_MOBIOS01",
+    rating: 5.0,
+    date: "Aug 2018 - Jan 2019",
+    name: "Jim Barnes",
+    quote: "Graduated and moved onto New more fun projects."
+  },
+  {
+    project: "Private - for Mobile",
+    rating: 5.0,
+    date: "Oct 2018 - Feb 2019",
+    name: "Tammy Simmons",
+    quote: "Welcome back when time permits."
+  }
+];
+---
+
+<section class="card" id="testimonials">
+  <h2>Testimonials</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {testimonials.map((testimonial) => (
+      <article class="p-6 rounded-lg bg-white border border-[var(--border)]">
+        <div class="mb-4">
+          <h3 class="text-xl font-bold text-[var(--ink)]">{testimonial.project}</h3>
+          <div class="flex items-center space-x-2 mt-2">
+            <span class="text-yellow-400">★★★★★</span>
+            <span class="">{testimonial.rating.toFixed(2)}</span>
+            <span class="text-[var(--muted)] text-sm">{testimonial.date}</span>
+          </div>
+        </div>
+        <blockquote class="text-[var(--muted)] italic">"{testimonial.quote}"</blockquote>
+        <cite class="block text-right mt-4 font-medium text-[var(--ink)]">{testimonial.name}</cite>
+      </article>
+    ))}
+  </div>
+  <div class="text-center mt-12">
+    <a href="https://www.upwork.com/o/profiles/users/_~0110672c907638b081/" target="_blank" rel="noreferrer" class="inline-block bg-[var(--accent)] hover:bg-[var(--accent-2)] text-white font-bold py-3 px-8 rounded-full transition-colors duration-300">
+      View all testimonials
+    </a>
+  </div>
+</section>

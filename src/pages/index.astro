@@ -1,17 +1,360 @@
 ---
+import ProfileLayout from '../layouts/ProfileLayout.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Contact from '../components/Contact.astro';
 
+const profile = {
+  name: "Rajat Mishra",
+  role: "Mobile Engineer",
+  summary:
+    "9+ years building native and cross-platform apps that engage users and deliver results. Strong in Swift, Kotlin, React Native, and Flutter, with a focus on performance and efficiency.",
+};
+
+const experience = [
+  {
+    title: "Senior iOS Developer",
+    company: "Freelance (Remote)",
+    period: "May 2020 - Present",
+    description:
+      "Developed and launched 10+ mobile applications across industries, reducing delivery time by roughly 20% through efficient code practices, clear architecture, and agile execution.",
+  },
+  {
+    title: "iOS Developer",
+    company: "Bito1 Techplode, Ahmedabad, India",
+    period: "Feb 2019 - Apr 2020",
+    description:
+      "Built and shipped native iOS features while maintaining shared Git workflows, managing pull requests, and coordinating delivery with cross-functional teams using JIRA and collaborative project tools.",
+  },
+  {
+    title: "Junior iOS Developer",
+    company: "Biztech, Ahmedabad, India",
+    period: "Jan 2017 - Nov 2018",
+    description:
+      "Started in professional mobile development, collaborating with senior engineers to build and maintain production iOS applications, resolve issues quickly, and strengthen code quality fundamentals.",
+  },
+];
+
+const projects = [
+  {
+    name: "Ever Accountable - Quit Porn",
+    description: [
+      "Led ground-up development of next-generation iOS application using Swift",
+      "Maintained and enhanced existing iOS application with new features",
+      "Developed native ScreenTime framework features for digital monitoring",
+      "Collaborated with product managers and designers for UI implementation"
+    ],
+    tags: ["iOS", "Swift", "ScreenTime"],
+    image: "/images/ever-accountable-icon.png",
+    appLink: "https://apps.apple.com/in/app/ever-accountable-quit-porn/id1074047778"
+  },
+  {
+    name: "DP360 CRM",
+    description: [
+      "Spearheaded development of native iOS and Android applications",
+      "Implemented MVVM architecture with Coordinator pattern",
+      "Designed iOS app per Apple's HIG and Android per Material Design",
+      "Managed App Store Connect and Google Play Console releases"
+    ],
+    tags: ["iOS", "Android", "MVVM", "Swift", "Kotlin"],
+    image: "/images/dp360-crm-icon.png",
+    appLink: "https://apps.apple.com/in/app/dp360-crm/id1669400880"
+  },
+  {
+    name: "Goally Therapy Suite",
+    description: [
+      "Engineered iOS application from ground up using VIPER architecture",
+      "Architected Core Data layer for robust offline functionality",
+      "Ensured responsive UI for landscape and multiple device screens",
+      "Integrated Lottie animations for dynamic user experience"
+    ],
+    tags: ["iOS", "VIPER", "Core Data", "Lottie"],
+    image: "/images/placeholder-icon.png",
+    appLink: "https://apps.apple.com/in/app/goally-home-therapy-suite/id1546329274"
+  },
+  {
+    name: "Hoptale: Remember Your Journey",
+    description: [
+      "Performed continuous maintenance and optimization using Clean Swift",
+      "Implemented new features based on client requirements",
+      "Collaborated with cross-functional teams for feature integration",
+      "Maintained high-quality product standards"
+    ],
+    tags: ["iOS", "Swift", "Clean Swift"],
+    image: "/images/placeholder-icon.png",
+    appLink: "https://apps.apple.com/in/app/hoptale/id955358548"
+  },
+  {
+    name: "EventMoon",
+    description: [
+      "Enhanced application performance through targeted optimisation",
+      "Modernised UI and implemented new features using Swift",
+      "Collaborated with team for feature integration",
+      "Improved overall application functionality"
+    ],
+    tags: ["iOS", "Swift", "MVC"],
+    image: "/images/placeholder-icon.png",
+    appLink: "https://apps.apple.com/in/app/eventmoon/id487922291"
+  },
+  {
+    name: "Unbiasy News App",
+    description: [
+      "Developed native iOS application from ground up using Swift",
+      "Created modular, scalable codebase using VIPER architecture",
+      "Integrated social media login for enhanced onboarding",
+      "Successfully deployed and managed on App Store"
+    ],
+    tags: ["iOS", "Swift", "VIPER"],
+    image: "/images/placeholder-icon.png",
+    appLink: "https://apps.apple.com/in/app/unbiasy/id6477892005"
+  },
+  {
+    name: "GO: Car Booking App",
+    description: [
+      "Led cross-functional team of four developers (iOS, Android, backend)",
+      "Contributed to native iOS development using MVVM design pattern",
+      "Acted as primary technical liaison with client",
+      "Ensured application met all specifications for reliability"
+    ],
+    tags: ["iOS", "MVVM", "Team Leadership"],
+    image: "/images/placeholder-icon.png",
+    appLink: "#"
+  },
+  {
+    name: "Griddle",
+    description: [
+      "Engineered native social media application from inception to launch",
+      "Collaborated with design team for UI implementation",
+      "Integrated server APIs for core functionality",
+      "Managed full lifecycle from development to App Store deployment"
+    ],
+    tags: ["iOS", "Swift", "MVC"],
+    image: "/images/placeholder-icon.png",
+    appLink: "https://apps.apple.com/in/app/griddle/id6755901046"
+  },
+  {
+    name: "Style Click",
+    description: [
+      "Collaborated with team member to accelerate development",
+      "Designed and implemented complex user interfaces",
+      "Integrated various APIs for assigned functionality",
+      "Maintained Git repository with code merges and version control"
+    ],
+    tags: ["iOS", "UI/UX", "Git"],
+    image: "/images/placeholder-icon.png",
+    appLink: "https://apps.apple.com/in/app/style-click/id6738174180"
+  },
+  {
+    name: "TapCRM",
+    description: [
+      "Performed continuous maintenance on native CRM application",
+      "Fixed bugs and implemented new features effectively",
+      "Managed local data storage using Swift and SQLite",
+      "Managed App Store deployment with each development milestone"
+    ],
+    tags: ["iOS", "Swift", "SQLite"],
+    image: "/images/tapcrm-icon.png",
+    appLink: "https://apps.apple.com/in/app/tapcrm/id1280832746"
+  },
+  {
+    name: "UbyCRM",
+    description: [
+      "Developed custom features for customer relationship application",
+      "Ensured seamless integration with client's CRM and ERP system",
+      "Managed deployment process for App Store launch",
+      "Met all client specifications and requirements"
+    ],
+    tags: ["iOS", "CRM"],
+    image: "/images/ubycrm-icon.png",
+    appLink: "https://apps.apple.com/in/app/ubycrm/id1487257432"
+  }
+];
+
+const skillCategories = [
+  {
+    level: "Expert",
+    skills: ["Swift", "SwiftUI", "Core Data", "App Store", "MVVM", "VIPER", "CleanSwift", "MVC"]
+  },
+  {
+    level: "Proficient",
+    skills: ["Kotlin", "SQLite", "Firebase", "GitHub", "MVP", "Android"]
+  },
+  {
+    level: "Familiar",
+    skills: ["Flutter", "Dart", "React Native", "JavaScript", "TypeScript", "RxSwift", "Combine Framework"]
+  }
+];
+
+const education = [
+  {
+    degree: "Master of Computer Application",
+    field: "Computer Software",
+    institution: "CMPICA CHARUSAT",
+    location: "Nadiad, India",
+    gpa: "9.9",
+    period: "Jun 2015 - Jun 2017"
+  },
+  {
+    degree: "Bachelor of Computer Application",
+    field: "Computer Software",
+    institution: "C.B Patel Computer College",
+    location: "Surat, India",
+    gpa: "6.6",
+    period: "May 2012 - Jun 2015"
+  }
+];
+
+const certifications = [
+  {
+    title: "Mastering RxSwift in iOS",
+    issuer: "Udemy",
+    period: "Apr 2020 - May 2020"
+  },
+  {
+    title: "Introduction to Unit Testing in iOS App Development",
+    issuer: "Alison",
+    period: "Feb 2020 - Mar 2020"
+  },
+  {
+    title: "SwiftUI - Learn How to Build Beautiful & Robust Apps",
+    issuer: "Udemy",
+    period: "Apr 2019 - Jun 2019"
+  }
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<ProfileLayout pageTitle="Rajat Mishra | Mobile Engineer" pageDescription="Profile, selected work, and contact details for Rajat Mishra.">
+  <div class="page-bg"></div>
+  <main class="page">
+    <section class="hero card">
+      <div class="hero-content">
+        <div class="hero-text">
+          <p class="kicker">Profile</p>
+          <h1>{profile.name}</h1>
+          <p class="hero-role">{profile.role}</p>
+          <p class="hero-summary">{profile.summary}</p>
+          <div class="hero-actions">
+            <a class="social-link" href="mailto:rajat.m324@gmail.com" aria-label="Email Rajat">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M2.25 6.75A2.25 2.25 0 0 1 4.5 4.5h15A2.25 2.25 0 0 1 21.75 6.75v10.5A2.25 2.25 0 0 1 19.5 19.5h-15a2.25 2.25 0 0 1-2.25-2.25V6.75Zm1.8-.15 7.32 5.2a1.05 1.05 0 0 0 1.26 0l7.32-5.2a.75.75 0 0 0-.45-.6H4.5a.75.75 0 0 0-.45.6Zm16.2 1.52-6.75 4.8a2.55 2.55 0 0 1-3 0l-6.75-4.8v9.13c0 .41.34.75.75.75h15c.41 0 .75-.34.75-.75V8.12Z"></path>
+              </svg>
+            </a>
+            <a class="social-link" href="https://github.com/rjt3662" rel="noreferrer" target="_blank" aria-label="Rajat on GitHub">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 1.5C6.2 1.5 1.5 6.35 1.5 12.34c0 4.8 3 8.87 7.15 10.3.53.1.72-.24.72-.53v-1.9c-2.9.65-3.51-1.42-3.51-1.42-.47-1.23-1.16-1.56-1.16-1.56-.95-.67.07-.65.07-.65 1.04.08 1.6 1.12 1.6 1.12.94 1.63 2.44 1.16 3.04.9.1-.7.36-1.17.66-1.44-2.31-.27-4.74-1.2-4.74-5.36 0-1.18.41-2.13 1.08-2.88-.11-.27-.47-1.38.1-2.87 0 0 .89-.29 2.92 1.1a9.9 9.9 0 0 1 5.32 0c2.03-1.39 2.91-1.1 2.91-1.1.58 1.49.22 2.6.11 2.87.67.75 1.08 1.7 1.08 2.88 0 4.17-2.44 5.08-4.77 5.35.38.33.71.97.71 1.96v2.9c0 .3.19.64.73.53A10.87 10.87 0 0 0 22.5 12.34C22.5 6.35 17.8 1.5 12 1.5Z"></path>
+              </svg>
+            </a>
+            <a class="social-link" href="http://linkedin.com/in/rajat-mishra-b89b62148" rel="noreferrer" target="_blank" aria-label="Rajat on LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6.55 8.98H3.42V21h3.13V8.98Zm.2-3.72c0-1.03-.78-1.76-1.76-1.76-.99 0-1.79.73-1.79 1.76 0 1 .78 1.77 1.75 1.77h.02c1 0 1.78-.77 1.78-1.77Zm5.73 15.74v-6.7c0-.36.03-.72.13-.98.28-.72.9-1.47 1.96-1.47 1.39 0 1.95 1.1 1.95 2.72V21h3.13v-6.8c0-3.64-1.9-5.33-4.44-5.33-2.05 0-2.96 1.15-3.47 1.95v.04h-.03l.03-.04V8.98H8.62c.04 1.2 0 12.02 0 12.02h3.13Z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="hero-image-wrap">
+          <img class="hero-image" src="/profile.jpg" alt="Portrait of Rajat Mishra" loading="eager" decoding="async" />
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>About</h2>
+      <p>
+        I am a mobile engineer with 9+ years of experience delivering native and cross-platform applications across iOS and Android. I work with Swift, Kotlin, Flutter, and React Native to build products that are reliable, scalable, and aligned with business goals.
+      </p>
+      <p class="about-paragraph">
+        My approach combines strong architecture (MVVM, MVC, VIPER, Clean patterns), performance-focused implementation, and clear collaboration across product, design, and backend teams. From new product builds to modernization and app-store readiness, I focus on shipping high-quality experiences on time with maintainable code and transparent communication.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Experience</h2>
+      <div class="stack">
+        {experience.map((job) => (
+          <article class="entry">
+            <div class="entry-head">
+              <h3>{job.title}</h3>
+              <p>{job.period}</p>
+            </div>
+            <p class="entry-company">{job.company}</p>
+            <p class="entry-description">{job.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Skills</h2>
+      <div class="skills-levels">
+        {skillCategories.map((category) => (
+          <div class="skill-level">
+            <h3>{category.level}:</h3>
+            <p>{category.skills.join(", ")}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Education</h2>
+      <div class="stack">
+        {education.map((item) => (
+          <article class="entry">
+            <div class="entry-head">
+              <h3>{item.degree} in {item.field}</h3>
+              <p>{item.period}</p>
+            </div>
+            <p class="entry-company">{item.institution} • {item.location} • GPA: {item.gpa}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    
+
+    <section class="card">
+      <h2>Projects</h2>
+      <div class="project-scroll">
+        {projects.map((project) => (
+          <article class="project">
+            <div class="project-header">
+              <img class="project-image" src={project.image} alt={`${project.name} icon`} />
+              <div class="project-info">
+                <h3>{project.name}</h3>
+                <a href={project.appLink} target="_blank" rel="noopener" class="app-link">(App Link)</a>
+              </div>
+            </div>
+            <ul class="project-description">
+              {project.description.map((point) => (
+                <li>{point}</li>
+              ))}
+            </ul>
+            <ul class="tags">
+              {project.tags.map((tag) => (
+                <li>{tag}</li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <Testimonials />
+
+    <section class="card">
+      <h2>Certifications</h2>
+      <div class="stack">
+        {certifications.map((cert) => (
+          <article class="entry">
+            <div class="entry-head">
+              <h3>{cert.title}</h3>
+              <p>{cert.period}</p>
+            </div>
+            <p class="entry-company">{cert.issuer}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <Contact />
+  </main>
+</ProfileLayout>

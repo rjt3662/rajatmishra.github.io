@@ -1,0 +1,29 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  pageTitle?: string;
+  pageDescription?: string;
+}
+
+const {
+  pageTitle = "Rajat Mishra | Mobile Engineer",
+  pageDescription = "Mobile engineer profile, selected work, and contact information.",
+} = Astro.props as Props;
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content={pageDescription}>
+    <meta property="og:title" content={pageTitle}>
+    <meta property="og:description" content={pageDescription}>
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#10281d">
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
