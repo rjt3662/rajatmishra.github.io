@@ -11,7 +11,7 @@
   --accent: #1f7a4e;
   --accent-2: #0e4a2f;
   --border: rgba(18, 33, 25, 0.14);
-  
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 * {
